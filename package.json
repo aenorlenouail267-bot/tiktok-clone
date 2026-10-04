@@ -1,19 +1,28 @@
 {
-  "name": "tiktok-clone",
-  "version": "1.0.0",
+  "name": "tiktok-clone-premium",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "node server/index.js",
-    "client": "cd client && npm install && npm run dev -- --host 0.0.0.0",
-    "dev-full": "concurrently \"npm run dev\" \"npm run client\"",
-    "start": "node server/index.js"
+    "dev-mobile": "cd mobile && npm install && npm run dev",
+    "dev-web": "cd client && npm install && npm run dev -- --host 0.0.0.0",
+    "dev-full": "concurrently \"npm run dev\" \"npm run dev-web\" \"npm run dev-mobile\"",
+    "start": "node server/index.js",
+    "build": "cd client && npm run build"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "express-validator": "^7.0.0",
+    "jsonwebtoken": "^9.1.2",
+    "mongoose": "^8.0.0",
+    "multer": "^1.4.5-lts.1",
+    "socket.io": "^4.7.2"
   },
   "devDependencies": {
-    "concurrently": "^8.0.1"
+    "concurrently": "^8.0.1",
+    "nodemon": "^3.0.2"
   }
 }

@@ -1,141 +1,64 @@
-# TikTok Clone - Multi-User Platform
+# TikTok Clone
 
-Une application TikTok complète et authentique avec support multi-utilisateurs, vidéos, interactions sociales et bien plus.
+Une application inspirée de TikTok, conçue pour montrer un design authentique et une architecture multi-utilisateurs.
 
-## 🎯 Fonctionnalités
+## Fonctionnalités de démonstration
 
-### Authentification & Profil
-- ✅ Inscription/Connexion sécurisée (JWT)
-- ✅ Profil utilisateur personnalisé
-- ✅ Follow/Unfollow
-- ✅ Gestion du compte
+- Interface verticale inspirée de TikTok
+- Feed avec plusieurs comptes
+- Follower / following panel
+- Discover / trending
+- Inbox / messages
+- Authentification simulée (login/register)
+- Likes et commentaires via API backend
 
-### Contenu Vidéo
-- ✅ Upload de vidéos (MP4, WebM, etc.)
-- ✅ Feed vertical infini (scrolling)
-- ✅ Lecture fluide avec contrôles
-- ✅ Compression automatique
+## Démarrage rapide
 
-### Interactions Sociales
-- ✅ Likes/Unlikes
-- ✅ Commentaires en temps réel
-- ✅ Partage de vidéos
-- ✅ Notifications
+### 1) Installer les dépendances du backend
 
-### Découverte
-- ✅ Fil d'actualité personnalisé
-- ✅ Onglet Découverte
-- ✅ Tendances
-- ✅ Recherche d'utilisateurs/vidéos
-
-## 📋 Architecture
-
-```
-tiktok-clone/
-├── server/                 # Backend Node.js/Express
-│   ├── models/            # Schémas MongoDB
-│   ├── routes/            # Endpoints API
-│   ├── controllers/        # Logique métier
-│   ├── middleware/         # Auth, validation
-│   └── index.js           # Entry point
-├── client/                # Frontend React
-│   ├── src/
-│   │   ├── components/    # Composants React
-│   │   ├── pages/        # Pages principales
-│   │   ├── services/     # API calls
-│   │   ├── styles/       # Styling
-│   │   └── App.js
-│   └── package.json
-└── README.md
-```
-
-## 🚀 Installation
-
-### Prérequis
-- Node.js v14+
-- MongoDB local ou cloud
-- npm ou yarn
-
-### Setup
-
-1. **Cloner le repo**
-```bash
-git clone https://github.com/aenorlenouail267-bot/tiktok-clone.git
-cd tiktok-clone
-```
-
-2. **Configuration**
-```bash
-cp .env.example .env
-# Éditer .env avec vos valeurs
-```
-
-3. **Installer dépendances backend**
 ```bash
 npm install
 ```
 
-4. **Installer dépendances frontend**
+### 2) Démarrer le backend
+
+```bash
+npm run dev
+```
+
+### 3) Démarrer le frontend
+
 ```bash
 cd client
 npm install
-cd ..
+npm run dev -- --host 0.0.0.0
 ```
 
-5. **Lancer l'application**
+### 4) Ouvrir l'application
+
 ```bash
-# Terminal 1 - Backend
-npm run dev
-
-# Terminal 2 - Frontend
-npm run client
+http://localhost:5173
 ```
 
-Ou les deux ensemble :
-```bash
-npm run dev-full
-```
+## API disponible
 
-## 📱 Endpoints API
+- `GET /api/health`
+- `GET /api/users`
+- `GET /api/feed`
+- `GET /api/discover`
+- `GET /api/messages`
+- `GET /api/profile/:username`
+- `POST /api/auth/login`
+- `POST /api/auth/register`
+- `POST /api/videos/:id/like`
+- `POST /api/videos/:id/comment`
 
-### Authentification
-- `POST /api/auth/register` - Créer un compte
-- `POST /api/auth/login` - Se connecter
-- `POST /api/auth/logout` - Se déconnecter
+## Stack
 
-### Utilisateurs
-- `GET /api/users/:id` - Profil utilisateur
-- `PUT /api/users/:id` - Mettre à jour profil
-- `POST /api/users/:id/follow` - Suivre
-- `POST /api/users/:id/unfollow` - Arrêter de suivre
-
-### Vidéos
-- `POST /api/videos/upload` - Uploader une vidéo
-- `GET /api/videos/feed` - Fil d'actualité
-- `GET /api/videos/:id` - Détails vidéo
-- `DELETE /api/videos/:id` - Supprimer vidéo
-
-### Interactions
-- `POST /api/videos/:id/like` - Liker
-- `POST /api/videos/:id/unlike` - Retirer like
-- `POST /api/videos/:id/comment` - Commenter
-- `GET /api/videos/:id/comments` - Lire commentaires
-
-## 🎨 Technologies
-
-**Backend:**
 - Express.js
-- MongoDB + Mongoose
-- JWT Authentication
-- Multer (Upload)
+- Vite + React
+- CSS custom, design TikTok-like
 
-**Frontend:**
-- React 18
-- Tailwind CSS
-- Axios
-- React Router
-- Socket.io (temps réel)
+## Note
 
-## 📝 Licence
-
-MIT
+Cette version est une démonstration fonctionnelle avec données locales pour simuler un clone TikTok multi-utilisateurs.
